@@ -3,23 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andrea Cienfuegos - Currículum</title>
+  <title>Andrea Cienfuegos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- MENÚ FLOTANTE -->
+<!-- MENÚ INTERACTIVO -->
 <nav class="navbar">
-  <ul>
-    <li><a href="#perfil">Perfil</a></li>
-    <li><a href="#formacion">Formación</a></li>
-    <li><a href="#habilidades">Habilidades</a></li>
-    <li><a href="#idiomas">Idiomas</a></li>
-    <li><a href="#competencias">Competencias</a></li>
-    <li><a href="#logros">Logros</a></li>
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#sobre-mi">Sobre mí</a></li>
-  </ul>
+    <div class="menu-icon" id="menu-icon">☰</div>
+    <ul class="menu-items" id="menu-items">
+        <li><a href="#datos-personales">Datos Personales</a></li>
+        <li><a href="#habilidades">Habilidades Técnicas</a></li>
+        <li><a href="#competencias">Competencias Profesionales</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+    </ul>
 </nav>
 
 <div class="container">
@@ -30,11 +28,13 @@
       <img src="img/ANDREA CIENFUEGOS CACHARRON.PNG" alt="Foto de Andrea Cienfuegos" class="profile-photo">
     </div>
     <h1>Andrea Cienfuegos Cacharrón</h1>
-    <p>Madrid, España</p>
-    <p>
-      <a href="mailto:andreaci.ca24@gmail.com">andreaci.ca24@gmail.com</a> | 
-      <a href="https://www.linkedin.com/in/andrea-cienfuegos-156643238/" target="_blank">LinkedIn</a>
-    </p>
+    <section id="datos-personales">
+        <h2>Datos Personales</h2>
+        <p>📍 Madrid, España</p>
+        <p>✉️ Email: <a href="mailto:andreaci.ca24@gmail.com">andreaci.ca24@gmail.com</a></p>
+        <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/andrea-cienfuegos-156643238/" target="_blank">Mi perfil</a></p>
+        <p>🐙 GitHub: <a href="https://github.com/AndreaCienfuegos" target="_blank">Mi GitHub</a></p>
+    </section>
   </div>
 
   <!-- PERFIL PROFESIONAL -->
@@ -62,21 +62,15 @@
   <section class="fade-section" id="habilidades">
     <h2>Habilidades Técnicas</h2>
     <div class="skills">
-      <div class="skill java">☕ Java — básico/medio</div>
-      <div class="skill python">🐍 Python — básico/medio</div>
-      <div class="skill html">🌐 HTML — avanzado</div>
-      <div class="skill css">🎨 CSS — avanzado</div>
-      <div class="skill js">💻 JavaScript — básico/medio</div>
-      <div class="skill mysql">🗄️ MySQL — básico</div>
-      <div class="skill git">🔧 Git — básico</div>
-      <div class="skill vscode">🖥️ VS Code — avanzado</div>
+      <div class="skill">☕ Java — básico/medio</div>
+      <div class="skill">🐍 Python — básico/medio</div>
+      <div class="skill">🌐 HTML — avanzado</div>
+      <div class="skill">🎨 CSS — avanzado</div>
+      <div class="skill">💻 JavaScript — básico/medio</div>
+      <div class="skill">🗄️ MySQL — básico</div>
+      <div class="skill">🔧 Git — básico</div>
+      <div class="skill">🖥️ VS Code — avanzado</div>
     </div>
-  </section>
-
-  <!-- IDIOMAS -->
-  <section class="fade-section" id="idiomas">
-    <h2>Idiomas</h2>
-    <p>Inglés — Nivel medio (B1/B2)</p>
   </section>
 
   <!-- COMPETENCIAS -->
@@ -101,18 +95,6 @@
     </ul>
   </section>
 
-  <!-- LOGROS -->
-  <section class="fade-section" id="logros">
-    <h2>Logros y Mini-Proyectos</h2>
-    <ul>
-      <li>Desarrollo de una calculadora básica en Java como ejercicio de lógica y programación orientada a objetos.</li>
-      <li>Gestor de tareas en Python con almacenamiento local y funciones de gestión de tareas pendientes.</li>
-      <li>Primer portfolio personal en HTML y CSS con animaciones y diseño responsive.</li>
-      <li>Integración de MySQL en pequeños proyectos de clase para almacenamiento y consultas de datos.</li>
-      <li>Participación en retos de programación grupales, mejorando la colaboración y el trabajo en equipo.</li>
-      <li>Aprendizaje y aplicación de buenas prácticas en control de versiones con Git y GitHub.</li>
-    </ul>
-  </section>
 
   <!-- PROYECTOS -->
   <section class="fade-section" id="proyectos">
@@ -136,7 +118,7 @@
     </div>
   </section>
 
-  <!-- SOBRE MÍ -->
+    <!-- SOBRE MÍ -->
   <section class="fade-section" id="sobre-mi">
     <h2>Sobre mí</h2>
     <p>Apasionada por la tecnología y la programación, siempre busco aprender y mejorar mis habilidades. Me encanta enfrentar retos y encontrar soluciones creativas y eficientes, combinando lógica y diseño en cada proyecto.</p>
@@ -147,27 +129,55 @@
 
 </div>
 
+<!-- SCRIPT MENU Y ANIMACIONES -->
 <script>
-  // Scroll suave
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e){
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
+const menuIcon = document.getElementById('menu-icon');
+const menuItems = document.getElementById('menu-items');
+
+// Abrir/cerrar menú
+menuIcon.addEventListener('click', () => {
+  menuItems.classList.toggle('show');
+});
+
+// Cerrar menú al hacer click en un enlace (móvil)
+menuItems.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuItems.classList.remove('show');
+  });
+});
+
+// Animación scroll
+const fadeSections = document.querySelectorAll('.fade-section');
+const skills = document.querySelectorAll('.skill');
+const projectCards = document.querySelectorAll('.project-card');
+
+const appearOnScroll = () => {
+  const triggerBottom = window.innerHeight / 1.2;
+
+  fadeSections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if(sectionTop < triggerBottom){
+      section.classList.add('appear');
+    }
   });
 
-  // Animación fade-in
-  const faders = document.querySelectorAll('.fade-section, .skill, .project-card');
-  const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver(function(entries, observer){
-    entries.forEach(entry => {
-      if(!entry.isIntersecting) return;
-      entry.target.classList.add('appear');
-      observer.unobserve(entry.target);
-    });
-  }, appearOptions);
+  skills.forEach(skill => {
+    const skillTop = skill.getBoundingClientRect().top;
+    if(skillTop < triggerBottom){
+      skill.classList.add('appear');
+    }
+  });
 
-  faders.forEach(fader => appearOnScroll.observe(fader));
+  projectCards.forEach(card => {
+    const cardTop = card.getBoundingClientRect().top;
+    if(cardTop < triggerBottom){
+      card.classList.add('appear');
+    }
+  });
+};
+
+window.addEventListener('scroll', appearOnScroll);
+window.addEventListener('load', appearOnScroll);
 </script>
 
 </body>

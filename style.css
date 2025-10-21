@@ -8,7 +8,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* --- MENÚ FLOTANTE --- */
+/* --- MENÚ INTERACTIVO --- */
 .navbar {
   position: fixed;
   top: 10px;
@@ -18,14 +18,60 @@ body {
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.navbar ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 10px; }
-.navbar ul li a { text-decoration: none; color: #065f46; font-weight: 500; transition: color 0.3s; }
-.navbar ul li a:hover { color: #10b981; }
+.menu-icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.navbar ul { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  display: flex; 
+  gap: 10px; 
+}
+
+.navbar ul li a { 
+  text-decoration: none; 
+  color: #065f46; 
+  font-weight: 500; 
+  transition: color 0.3s; 
+}
+
+.navbar ul li a:hover { 
+  color: #10b981; 
+}
+
+@media(max-width: 768px){
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background: rgba(255,255,255,0.95);
+    position: absolute;
+    top: 45px;
+    right: 0;
+    border-radius: 10px;
+    padding: 8px 0;
+    width: 180px;
+  }
+  .navbar ul.show { display: flex; }
+}
 
 /* --- CONTAINER --- */
-.container { max-width: 850px; margin: 80px auto; background: white; border-radius: 15px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); overflow: hidden; }
+.container { 
+  max-width: 850px; 
+  margin: 80px auto; 
+  background: white; 
+  border-radius: 15px; 
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08); 
+  overflow: hidden; 
+}
 
 /* --- BANNER --- */
 .banner {
@@ -87,7 +133,15 @@ body {
 
 /* --- SECCIONES --- */
 section { padding: 25px 30px; }
-h2 { color: #047857; font-size: 1.1rem; margin-bottom: 12px; border-left: 4px solid #10b981; padding-left: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+h2 { 
+  color: #047857; 
+  font-size: 1.1rem; 
+  margin-bottom: 12px; 
+  border-left: 4px solid #10b981; 
+  padding-left: 8px; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px; 
+}
 section p { color: #065f46; line-height: 1.5; margin: 0; }
 
 /* --- HABILIDADES --- */
@@ -158,5 +212,4 @@ ul li { margin-bottom: 6px; line-height: 1.4; }
   h2 { font-size: 1rem; }
   section { padding: 15px; }
   .projects { flex-direction: column; align-items: center; }
-  .navbar ul { flex-direction: column; gap: 5px; }
 }
